@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Categoria; // Certifique-se de que o namespace está correto
+namespace App\Controller\Categoria; 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,13 +15,13 @@ class CadastrarController extends AbstractController
     {
     }
 
-    #[Route('/categorias/cadastrar', name: 'cadastrar_categoria_show', methods: ['GET'])] // Adicionei uma barra inicial no path
+    #[Route('/categorias/cadastrar', name: 'cadastrar_categoria_show', methods: ['GET'])] 
     public function show(): Response
     {
-        return $this->render('categoria/cadastrar.html.twig'); // Corrigi o caminho para o template
+        return $this->render('categoria/cadastrar.html.twig'); 
     }   
 
-    #[Route('/categorias/cadastrar', name: 'cadastrar_categoria_salvar', methods: ['POST'])] // Adicionei uma barra inicial no path
+    #[Route('/categorias/cadastrar', name: 'cadastrar_categoria_salvar', methods: ['POST'])] 
     public function salvar(Request $request): Response
     {
         $nomeCategoria = $request->request->get('nome');
