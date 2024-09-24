@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container py-5">
+  <div class="mb-4">
+    <h1>Editar categoria</h1>
+  </div>
+
+  <div class="w-50 mt-2">
+    {% include "mensagens.html.twig" %}
+
+    <form
+      action="{{ path('editar_categoria_salvar', {'id': categoria.id}) }}"
+      method="POST"
+    >
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          name="nome"
+          value="{{ categoria.nome }}"
+          minlength="3"
+          maxlength="50"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
