@@ -9,15 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ListarController extends AbstractController
 {
-    public function __construct(
-        private CategoriaRepository $categoriaRepository,
-    ) {
+    public function __construct(private CategoriaRepository $categoriaRepository)
+    {
     }
 
-    #[Route('categorias', name: 'listar_categorias', methods: ['GET'])]
+    #[Route('/categorias', name: 'listar_categorias', methods: ['GET'])]
     public function show(): Response
     {
-        return $this->render('app/categoria/listar.html.twig', [
+        return $this->render('categoria/listar.html.twig', [
             'categorias' => $this->categoriaRepository->findAll(),
         ]);
     }

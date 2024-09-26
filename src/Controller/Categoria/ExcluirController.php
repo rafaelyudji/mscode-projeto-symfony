@@ -9,12 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ExcluirController extends AbstractController
 {
-    public function __construct(
-        private CategoriaRepository $categoriaRepository,
-    ) {
+    public function __construct(private CategoriaRepository $categoriaRepository)
+    {
     }
 
-    #[Route('categorias/excluir/{id}', name: 'excluir_categoria', methods: ['POST'])]
+    #[Route('/categorias/excluir/{id}', name: 'excluir_categoria', methods: ['POST'])]
     public function excluir(int $id): Response
     {
         $categoria = $this->categoriaRepository->find($id);
@@ -24,9 +23,7 @@ class ExcluirController extends AbstractController
         }
 
         $this->categoriaRepository->remove($categoria);
-        $this->addFlash('success', 'Categoria excluída com sucesso!');
 
         return $this->redirectToRoute('listar_categorias');
     }
 }
-        

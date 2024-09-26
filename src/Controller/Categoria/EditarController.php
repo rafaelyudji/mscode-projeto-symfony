@@ -11,12 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EditarController extends AbstractController
 {
-    public function __construct(
-        private CategoriaRepository $categoriaRepository,
-    ) {
+    public function __construct(private CategoriaRepository $categoriaRepository)
+    {
     }
 
-    #[Route('categorias/editar/{id}', name: 'editar_categoria_show', methods: ['GET'])]
+    #[Route('/categorias/editar/{id}', name: 'editar_categoria_show', methods: ['GET'])]
     public function show(int $id): Response
     {
         $categoria = $this->categoriaRepository->find($id);
@@ -26,12 +25,12 @@ class EditarController extends AbstractController
             return $this->redirectToRoute('listar_categorias');
         }
 
-        return $this->render('app/categoria/editar.html.twig', [
+        return $this->render('categoria/editar.html.twig', [
             'categoria' => $categoria
-        ]);
+        ]); 
     }
 
-    #[Route('categorias/editar/{id}', name: 'editar_categoria_salvar', methods: ['POST'])]
+    #[Route('/categorias/editar/{id}', name: 'editar_categoria_salvar', methods: ['POST'])]
     public function salvar(Request $request, int $id): Response
     {
         $categoria = $this->categoriaRepository->find($id);
@@ -49,8 +48,6 @@ class EditarController extends AbstractController
         $categoria->setNome($nomeCategoria);
         $this->categoriaRepository->salvar($categoria);
 
-        $this->addFlash('success', 'Categoria atualizada com sucesso!');
         return $this->redirectToRoute('listar_categorias');
     }
 }
-    

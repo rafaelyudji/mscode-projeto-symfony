@@ -15,13 +15,15 @@ class CategoriaRepository extends ServiceEntityRepository
 
     public function salvar(Categoria $categoria): void
     {
-        $this->_em->persist($categoria);
-        $this->_em->flush();
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($categoria);
+        $entityManager->flush();
     }
 
     public function remove(Categoria $categoria): void
     {
-        $this->_em->remove($categoria);
-        $this->_em->flush();
+        $entityManager = $this->getEntityManager(); 
+        $entityManager->remove($categoria);
+        $entityManager->flush();
     }
 }

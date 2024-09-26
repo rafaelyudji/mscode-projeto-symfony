@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller\Categoria; 
+namespace App\Controller\Categoria;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\CategoriaRepository; 
+use App\Repository\CategoriaRepository;
 use App\Entity\Categoria;
 
 class CadastrarController extends AbstractController
@@ -37,13 +37,12 @@ class CadastrarController extends AbstractController
             $this->addFlash('danger', "Categoria com nome \"{$nomeCategoria}\" já existe!");
             return $this->redirectToRoute('cadastrar_categoria_show');
         }
-
+                        
         $categoria = new Categoria();
         $categoria->setNome($nomeCategoria);
 
-        $this->categoriaRepository->salvar($categoria);
-
-        $this->addFlash('success', 'Categoria cadastrada com sucesso!'); 
+        $this->categoriaRepository->salvar($categoria); 
+        
         return $this->redirectToRoute('listar_categorias'); 
     }
 }
