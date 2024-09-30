@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ titulo }} {% endblock %}
+
+{% block body %}
+    {% include "header.html.twig" %}
+    <div class="container py-5">
+      <div class="mb-4">
+        <h1>Editar produto</h1>
+      </div>
+
+      <div class="w-50 mt-2">
+        <form  action="{{ path('produto_editar', { id: produto.id }) }}" method="POST">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" required minlength="2" placeholder="{{ produto.nome }}">
+            
+          </div>
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição:</label>
+            <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5" placeholder="{{ produto.descricao }}"></textarea>
+          </div>
+
+
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="categoriaId" class="form-label">Categoria Id:</label>
+              <input type="number" class="form-control" id="categoriaId" name="categoriaId" placeholder="{{ produto.categoria.id }}" readonly>
+            </div>
+            <div class="mb-3 col-4">
+              <label for="quantidade" class="form-label">Quantidade inicial:</label>
+              <input type="number" class="form-control" id="quantidade" name="quantidadeInicial" placeholder="{{ produto.quantidadeInicial }}">
+            </div>
+             <div class="mb-3 col-4">
+              <label for="quantidade" class="form-label">Quantidade disponivel:</label>
+              <input type="number" class="form-control" id="quantidade" name="quantidadeDisponivel" placeholder="{{ produto.quantidadeDisponivel }}">
+            </div>
+            <div class="mb-3 col-4">
+              <label for="valor" class="form-label">Valor:</label>
+              <input type="text" class="form-control" id="valor" name="valor" placeholder="{{ produto.valor }}">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+{% endblock %}
