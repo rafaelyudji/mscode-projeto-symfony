@@ -20,5 +20,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    # Register the LoginSuccessHandler as a service
+    App\Security\LoginSuccessHandler:
+        arguments:
+            $router: '@router'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

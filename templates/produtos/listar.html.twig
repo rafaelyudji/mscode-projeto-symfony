@@ -16,12 +16,12 @@
           <tr>
             <th scope="col">id</th>
             <th scope="col">Nome</th>
-            <th scope="col">descrição</th>
-            <th scope="col">categoria_id</th>
-            <th scope="col-2 text-align-right">data_cadastro</th>
-            <th scope="col-2 text-align-right">quantidade_inicial</th>
-            <th scope="col-2 text-align-right">quantidade_disponiviel</th>
-            <th scope="col-2 text-align-right">valor</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Categoria Id</th>
+            <th scope="col-2 text-align-right">Data_cadastro</th>
+            <th scope="col-2 text-align-right">Quantidade Inicial</th>
+            <th scope="col-2 text-align-right">Quantidade Disponiviel</th>
+            <th scope="col-2 text-align-right">Valor</th>
           </tr>
         </thead>
         <tbody>
@@ -36,8 +36,8 @@
                     <td>{{ valor.quantidadeDisponivel }}</td>  
                     <td>{{ valor.valor }}</td> 
                     <td class='col-2 text-align-right'>
-                        <a href="{{ path('produto_aumentar', {id: valor.id}) }}" class='btn btn-success btn-sm'>Aumentar</a>
-                        <a href="{{ path('produto_diminuir', {id: valor.id}) }}" class='btn btn-danger btn-sm'>Diminuir</a>
+                        <a href="{{ path('produto_aumentar', {id: valor.id}) }}" class='btn btn-success btn-sm'>+</a>
+                        <a href="{{ path('produto_diminuir', {id: valor.id}) }}" class='btn btn-danger btn-sm'>-</a>
                         <a href="{{ path('produto_editar', {id: valor.id}) }}" class='btn btn-secondary btn-sm'><i class='bi bi-pencil'></i></a>
                         <a href='{{ path('produto_excluir', {id: valor.id}) }}' class='btn btn-danger btn-sm'><i class='bi bi-x'></i></a>
                     </td>

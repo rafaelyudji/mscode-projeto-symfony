@@ -19,34 +19,24 @@
     <div class="border-bottom mb-2">
       <div class="container">
         <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img class="me-2" src="/public/assets/images/logotipo.svg" width="53">
-            <span class="fs-4">MS Code - Estoque</span>
-          </a>
-
-          <ul class="nav nav-pills d-flex align-items-center">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Vendas
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="vendas_realizadas.html">Vendas realizadas</a></li>
-                <li><a class="dropdown-item" href="nova_venda.html">Nova venda</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Produtos
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Estoque</a></li>
-                <li><a class="dropdown-item" href="">Categorias</a></li>
-              </ul>     
-            </li>
-            <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
-          </ul>
-        </header>
+            <a href="{{ path('home') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+              <img class="me-2" src="{{ asset('images/logotipo.svg') }}" width="53">
+              <span class="fs-4">MS Code - Estoque</span>
+            </a>
+                    <ul class="nav nav-pills d-flex align-items-center">
+                        <li class="nav-item"><a href="{{ path('home') }}" class="nav-link active" aria-current="page">Início</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Produtos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ path('listar_produtos') }}">Estoque</a></li>
+                                <li><a class="dropdown-item" href="{{ path('listar_categorias') }}">Categorias</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="{{ path('app_logout') }}" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
+                    </ul>
+                </header>
       </div>
     </div>      
 
@@ -82,12 +72,12 @@
 
           <div class="mb-3">
             <label for="quantidadeInicial" class="form-label">Quantidade Inicial:</label>
-            <input type="number" class="form-control" id="quantidadeInicial" name="quantidadeInicial" value="{{ produto.quantidadeInicial }}" required>
+            <input type="number" class="form-control" id="quantidadeInicial" name="quantidadeInicial" value="{{ produto.quantidadeInicial }}" readonly required>
           </div>
 
           <div class="mb-3">
             <label for="quantidadeDisponivel" class="form-label">Quantidade Disponível:</label>
-            <input type="number" class="form-control" id="quantidadeDisponivel" name="quantidadeDisponivel" value="{{ produto.quantidadeDisponivel }}" required>
+            <input type="number" class="form-control" id="quantidadeDisponivel" name="quantidadeDisponivel" value="{{ produto.quantidadeDisponivel }}" readonly required>
           </div>
 
           <div class="mb-3">
