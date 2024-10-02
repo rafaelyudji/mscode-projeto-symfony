@@ -17,6 +17,9 @@ Este é um projeto de sistema de estoque desenvolvido usando Symfony e Twig, bas
 ### Tela de Cadastro
 ![Tela de Cadastro](/assets/images/Cadastro.jpeg)
 
+### Tela Inicial
+![Tela de Cadastro](/assets/images/Home.png)
+
 ### Criar Nova Categoria
 ![Criar Nova Categoria](/assets/images/Categoria_Nova.jpeg)
 
